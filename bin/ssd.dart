@@ -5,9 +5,32 @@ import 'creational/builder.dart';
 import 'creational/factory_method.dart';
 import 'creational/prototype.dart';
 import 'creational/singleton.dart';
+import 'structural/adapter.dart';
+import 'structural/bridge.dart' as bridge;
 
 void main(List<String> arguments) {
-  singletonMethod();
+  bridgeMethod();
+}
+
+// @Behvioral
+void bridgeMethod() {
+  final circle = bridge.Circle(bridge.VectorRenderer(), 5);
+  circle.draw(); // prints 'Drawing a circle with radius 5'
+  circle.resize(2);
+  circle.draw(); // prints 'Drawing a circle with radius 10'
+
+  final square = bridge.Square(bridge.RasterRenderer(), 5);
+  square.draw(); // prints 'Drawing a square with side 5 to a bitmap'
+  square.resize(2);
+  square.draw(); // prints 'Drawing a square with side 10 to a bitmap'
+}
+
+// @Behavioral
+void adapterMethod() {
+  final square = Square(2);
+  final adapter = SquareToCircleAdapter(square);
+
+  print(adapter.area); // prints '2.5132741228718345'
 }
 
 void singletonMethod() {
