@@ -7,12 +7,25 @@ import 'creational/prototype.dart';
 import 'creational/singleton.dart';
 import 'structural/adapter.dart';
 import 'structural/bridge.dart' as bridge;
+import 'structural/composite.dart';
 
 void main(List<String> arguments) {
-  bridgeMethod();
+  compositeMethod();
 }
 
-// @Behvioral
+// @Behavioural
+void compositeMethod() {
+  final composite = Composite();
+  composite.add(Savings());
+  composite.add(Corporate());
+
+  composite.openAccount('\$10,000');
+  // prints:
+  //   Drawing a circle with color red
+  //   Drawing a square with color red
+}
+
+// @Behavioral
 void bridgeMethod() {
   final circle = bridge.Circle(bridge.VectorRenderer(), 5);
   circle.draw(); // prints 'Drawing a circle with radius 5'
