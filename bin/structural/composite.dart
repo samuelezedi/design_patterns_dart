@@ -27,3 +27,8 @@ class Composite implements BankAccount {
     }
   }
 }
+
+
+///
+///In this example, the Composite class holds a list of BankAccount objects and implements the openAccount method of the BankAccount interface by delegating to the child accounts. The main function creates a Composite object and adds a Savings and a Corporate account to it. When the draw method of the composite is called, it delegates the call to the openAccount method of the child objects.
+///By using the composite design pattern, you can create tree structures of objects and treat them uniformly, without having to worry about whether they are individual objects or compositions of objects.
