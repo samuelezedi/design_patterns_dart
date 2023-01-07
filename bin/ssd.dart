@@ -3,8 +3,22 @@ import 'package:ssd/ssd.dart' as ssd;
 import 'creational/abstract_factory.dart';
 import 'creational/builder.dart';
 import 'creational/factory_method.dart';
+import 'creational/prototype.dart';
 
 void main(List<String> arguments) {
+  prototypMethod();
+}
+
+void prototypMethod() {
+  final location = Location(1, 1);
+  final copy = Location.clone(location);
+
+  print(location == copy); // prints 'false'
+  print(location.lat == copy.lat); // prints 'true'
+  print(location.lng == copy.lng);
+}
+
+void builderMethod() {
   final user = CreateUserAccount()
       .setUserName('ezedi')
       .setEmail('ezedi@mail.com')
