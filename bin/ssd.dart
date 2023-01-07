@@ -8,12 +8,25 @@ import 'creational/singleton.dart';
 import 'structural/adapter.dart';
 import 'structural/bridge.dart' as bridge;
 import 'structural/composite.dart';
+import 'structural/decorator.dart';
+import 'structural/facade.dart';
 
 void main(List<String> arguments) {
-  compositeMethod();
+  facadeMethod();
 }
 
-// @Behavioural
+void facadeMethod() {
+  final page = PageFacade();
+  print(page.generatePage());
+}
+
+void decoratorMethod() {
+  final textView = ScrollDecorator(SimpleTextView());
+  textView.draw(); // prints:
+  //   Drawing a simple text view
+  //   Adding scroll bars to the text view
+}
+
 void compositeMethod() {
   final composite = Composite();
   composite.add(Savings());
@@ -25,7 +38,6 @@ void compositeMethod() {
   //   Drawing a square with color red
 }
 
-// @Behavioral
 void bridgeMethod() {
   final circle = bridge.Circle(bridge.VectorRenderer(), 5);
   circle.draw(); // prints 'Drawing a circle with radius 5'
@@ -38,7 +50,6 @@ void bridgeMethod() {
   square.draw(); // prints 'Drawing a square with side 10 to a bitmap'
 }
 
-// @Behavioral
 void adapterMethod() {
   final square = Square(2);
   final adapter = SquareToCircleAdapter(square);
