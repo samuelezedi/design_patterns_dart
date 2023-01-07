@@ -10,9 +10,23 @@ import 'structural/bridge.dart' as bridge;
 import 'structural/composite.dart';
 import 'structural/decorator.dart';
 import 'structural/facade.dart';
+import 'structural/flightweight.dart';
 
 void main(List<String> arguments) {
-  facadeMethod();
+  flightweigthMethod();
+}
+
+void flightweigthMethod() {
+  final factory = FeatureFactory();
+
+  final a = factory.getFeature('a');
+  final b = factory.getFeature('b');
+  final c = factory.getFeature('c');
+  final a2 = factory.getFeature('a');
+
+  print(a == a2); // prints 'true'
+  print(a == b); // prints 'false'
+  print(a == c); // prints 'false'
 }
 
 void facadeMethod() {

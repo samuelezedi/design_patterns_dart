@@ -29,3 +29,7 @@ class PageFacade {
       _css.generateStyles('p{color: red;}') +
       _javascript.generateScripts('function test() {return "Text";}');
 }
+
+///
+///In this example, the PageFacade class provides a simplified interface to the complex system of generating a webpage, which consists of generating HTML, CSS, and JavaScript code. The facade class has fields for the classes that handle the generation of each type of code, and delegates the calls to the appropriate methods of these classes.
+///The main function creates a PageFacade object and calls its generatePage method, which generates and returns the complete code for a webpage by delegating to the appropriate methods of the HTML, CSS, and JavaScript classes.
