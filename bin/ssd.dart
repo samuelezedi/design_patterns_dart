@@ -4,9 +4,20 @@ import 'creational/abstract_factory.dart';
 import 'creational/builder.dart';
 import 'creational/factory_method.dart';
 import 'creational/prototype.dart';
+import 'creational/singleton.dart';
 
 void main(List<String> arguments) {
-  prototypMethod();
+  singletonMethod();
+}
+
+void singletonMethod() {
+  final person = Person();
+  final person2 = Person();
+
+  print(person == person2); // prints 'true'
+
+  person.name = "Ezedi";
+  print(person2.name);
 }
 
 void prototypMethod() {
