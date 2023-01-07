@@ -11,9 +11,17 @@ import 'structural/composite.dart';
 import 'structural/decorator.dart';
 import 'structural/facade.dart';
 import 'structural/flightweight.dart';
+import 'structural/proxy.dart';
 
 void main(List<String> arguments) {
-  flightweigthMethod();
+  proxyMethod();
+}
+
+void proxyMethod() {
+  final bankAccount = BankAccountProxy(BankAccountImp(100), 'secret');
+  bankAccount.deposit(50);
+  print(bankAccount.balance); // prints '150'
+  print(bankAccount.withdraw);
 }
 
 void flightweigthMethod() {
